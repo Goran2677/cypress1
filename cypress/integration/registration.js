@@ -1,17 +1,24 @@
-describe('Negative registration attempt/without checkicking terms and coditions', () => {
+const locators = require("../fixtures/locators.json")
+const faker = require('faker');
+
+let userData = {
+    randomName : faker.name.findName(),
+    randomLastName : faker.name.lastName(),
+    randomEmail : faker.internet.email(),
+    randomPassword : faker.internet.password()
+}
+
+describe('login case', () => {
     it('Visit Gallery App', () => {
-        cy.visit('https://gallery-app.vivifyideas.com/')
-        cy.wait('500')
+        beforeEach(() => {
+            cy.visit('')
+            cy.get(locators.navigation.registerPage).click()
+        })
     })
     
-    it('Click on Register button', () => {
-        cy.visit('https://gallery-app.vivifyideas.com/')
-        cy.get(':nth-child(2) > .nav-link').click()
-        cy.wait('500')
-    })
 
     it('Enter first name', () => {
-        cy.get('input[id="first-name"]').type('Dragan')
+        cy.get(locators.registerPage.firstName).type('Dragan')
     })
 
     it('Enter last name', () => {
@@ -19,7 +26,7 @@ describe('Negative registration attempt/without checkicking terms and coditions'
     })
 
     it('Enter email', () => {
-        cy.get('input[id="email"]').type('dragance@test.com')
+        cy.get('input[id="email"]').type(faker.internet.email())
     })
 
     it('Enter password', () => {
@@ -41,14 +48,11 @@ describe('Negative registration attempt/without checkicking terms and coditions'
 
 describe('Negative registration attempt/with incorrect confirmation password', () => {
     it('Visit Gallery App', () => {
-        cy.visit('https://gallery-app.vivifyideas.com/')
-    })
+        beforeEach(() => {
+            cy.visit('')
+            cy.get(locators.navigation.registerPage).click()
+        })
     
-    it('Click on Register button', () => {
-        cy.visit('https://gallery-app.vivifyideas.com/')
-        cy.get(':nth-child(2) > .nav-link').click()
-    })
-
     it('Enter first name', () => {
         cy.get('input[id="first-name"]').type('Dragan')
     })
@@ -80,14 +84,11 @@ describe('Negative registration attempt/with incorrect confirmation password', (
 
 describe('Positive Registration', () => {
     it('Visit Gallery App', () => {
-        cy.visit('https://gallery-app.vivifyideas.com/')
-    })
+        beforeEach(() => {
+            cy.visit('')
+            cy.get(locators.navigation.registerPage).click()
+        })
     
-    it('Click on Register button', () => {
-        cy.visit('https://gallery-app.vivifyideas.com/')
-        cy.get(':nth-child(2) > .nav-link').click()
-    })
-
     it('Enter first name', () => {
         cy.get('input[id="first-name"]').type('Dragan')
     })
@@ -117,3 +118,5 @@ describe('Positive Registration', () => {
     })
 })
 
+})
+})

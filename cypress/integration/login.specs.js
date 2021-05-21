@@ -1,4 +1,4 @@
-const locators = required("../../fixtures/locators.json")
+const locators = require("../fixtures/locators.json")
 
 describe('login spec - negative - without @', () => {
     beforeEach(() => {
@@ -7,7 +7,7 @@ describe('login spec - negative - without @', () => {
     })
     
     it('click login button', () => {
-        cy.get('a[class="nav-link nav-buttons"]').eq(0).click()
+        cy.get(locators.loginPage.submitBtn).eq(0).click()
     })
 
     it('enter user name', () => {

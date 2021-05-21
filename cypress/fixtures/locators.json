@@ -1,5 +1,20 @@
 {
     "navigation" : {
-        "loginButton" : "a[href='/login']"
+        "loginButton" : "a[href='/login']",
+        "logoutButton" : "a[role='button ']"
+    },
+
+    "loginPage" : {
+        "email" : "input[id='email']",
+        "password" : "input[id='password']",
+        "submitBtn" : "button[type='submit']"
+    },
+
+    "registerPage" : {
+        "firstName" : "input[id='first-name']",
+        "lastName" : "input[id='last-name']",
+        "email" : "input[id='email']",
+        "password" : "input[id='password']",
+        "confirmationPassword" : "input[id='password-confirmation']"
     }
 }
